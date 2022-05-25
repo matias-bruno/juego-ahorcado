@@ -56,7 +56,7 @@ function obtenerPalabra() {
 function guardarPalabra() {
     let input = document.querySelector("#entrada");
     let palabra = input.value;
-    if((/[a-zA-ZñÑ]{4,8}/).test(palabra)) {
+    if((/^[a-zA-ZñÑ]{4,8}$/).test(palabra)) {
         palabras.push(palabra.toUpperCase());
         alert("La palabra se agregó");
         iniciarJuego();
