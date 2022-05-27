@@ -62,6 +62,9 @@ body {
 	border: 1px solid #0A3871;
 	cursor: pointer;
 }
+.btn-custom:hover {
+	transform: scale(1.05);
+}
 #entrada {
 	margin: 20px;
 	padding: 10px;

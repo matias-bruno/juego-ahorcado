@@ -91,5 +91,12 @@ let palabras = [
     "HERMOSA",
     "TIBIEZA",
     "RECURSO",
-    "VICTORIA"
+    "VICTORIA",
+    "GUERRERO",
+    "PALABRA",
+    "PIMIENTA",
+    "SALUDO",
+    "TORMENTA",
+    "SILUETA",
+    "EMPEÑO"
 ];

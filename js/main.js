@@ -47,9 +47,7 @@ function terminarJuego() {
 }
 function obtenerPalabra() {
     let tamanio = palabras.length;
-    if(tamanio == 0) {
-        return;
-    }
+    if(tamanio == 0) { return; }
     let index = Math.floor(Math.random() * tamanio);
     return palabras[index];
 }
@@ -67,7 +65,9 @@ function guardarPalabra() {
 function mostrarInicio() {
     $("#principal").css("justify-content", "center");
     principal.innerHTML = `
-    <a href="https://www.aluracursos.com/" alt="Sitio web de Alura"><img class="logo" src="img/Logo.png" alt="Logo de Alura"></a>
+        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
+            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
+        </a>
         <button id="btn-start" onclick="iniciarJuego()">Iniciar Juego</button>
         <button id="btn-addword" onclick="mostrarGuardarPalabra()">Agregar nueva palabra</button>
     `;
@@ -111,7 +111,7 @@ function mostrarJuego(adivinando) {
 }
 function ingresoTeclado(letra) {
     // si no es una letra, no se hace nada
-    if(!(/[a-zA-Z]/).test(letra)) {
+    if(!(/[a-zA-ZñÑ]/).test(letra)) {
         return;
     }
     if(palabra.includes(letra)) {
