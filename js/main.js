@@ -68,8 +68,8 @@ function mostrarInicio() {
         <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
             <img class="logo" src="img/Logo.png" alt="Logo de Alura">
         </a>
-        <button id="btn-start" onclick="iniciarJuego()">Iniciar Juego</button>
-        <button id="btn-addword" onclick="mostrarGuardarPalabra()">Agregar nueva palabra</button>
+        <button id="btn-start" class="btn-custom" onclick="iniciarJuego()">Iniciar Juego</button>
+        <button id="btn-addword" class="btn-custom btn-inverse" onclick="mostrarGuardarPalabra()">Agregar nueva palabra</button>
     `;
 }
 
@@ -78,10 +78,12 @@ function mostrarGuardarPalabra() {
     principal.innerHTML = `
         <input type="text" id="entrada" placeholder="Ingrese una palabra">
         <div id="div-botones">
-            <button id="btn-guardar" onclick="guardarPalabra()" class="btn btn-primary btn-custom m-1">Guardar y empezar</button>
-            <button id="btn-cancelar" onclick="mostrarInicio()" class="btn btn-primary  btn-custom m-1">Cancelar</button>
+            <button id="btn-guardar" onclick="guardarPalabra()" class="btn-custom m-1">Guardar y empezar</button>
+            <button id="btn-cancelar" onclick="mostrarInicio()" class="btn-custom btn-inverse m-1">Cancelar</button>
         </div>
     `;
+    let entrada = document.querySelector("#entrada");
+    entrada.focus();
 }
 function mostrarJuego(adivinando) {
     principal.innerHTML = `
@@ -95,8 +97,8 @@ function mostrarJuego(adivinando) {
         <div id="letras-descartadas">
         </div>
         <div id="div-botones">
-            <button id="btn-nuevo" onclick="reiniciarJuego()" class="btn btn-primary btn-custom m-1">Nuevo Juego</button>
-            <button id="btn-rendirse" onclick="rendirse()" class="btn btn-primary btn-custom m-1">Desistir</button>
+            <button id="btn-nuevo" onclick="reiniciarJuego()" class="btn-custom m-1">Nuevo Juego</button>
+            <button id="btn-rendirse" onclick="rendirse()" class="btn-custom btn-inverse m-1">Desistir</button>
         </div>
     `;
 

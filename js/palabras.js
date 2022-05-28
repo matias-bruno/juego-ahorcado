@@ -98,5 +98,7 @@ let palabras = [
     "SALUDO",
     "TORMENTA",
     "SILUETA",
-    "EMPEÑO"
+    "EMPEÑO",
+    "CAMPAÑA",
+    "HAZAÑA"
 ];
