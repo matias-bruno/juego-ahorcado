@@ -76,3 +76,12 @@ footer {
 	bottom: 0;
 	color: #0A3871;
 }
+#mobile-input {
+	display: none;
+	text-align: center;
+}
+@media (pointer:coarse) { 
+	#mobile-input { 
+		display: block; 
+	} 
+} 

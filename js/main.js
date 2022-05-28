@@ -97,6 +97,7 @@ function mostrarGuardarPalabra() {
         </div>
     `;
     principal.innerHTML += footer;
+    $("footer").css("position", "static");
     let entrada = document.querySelector("#entrada");
     entrada.focus();
 }
@@ -114,14 +115,25 @@ function mostrarJuego(adivinando) {
         </div>
         <div id="letras-descartadas">
         </div>
+        <input type=text id="mobile-input" min-length=1 max-length=1 size=1>
         <div id="div-botones">
             <button id="btn-nuevo" onclick="reiniciarJuego()" class="btn-custom m-1">Nuevo Juego</button>
             <button id="btn-rendirse" onclick="rendirse()" class="btn-custom btn-inverse m-1">Desistir</button>
         </div>
     `;
+    principal.innerHTML += footer;
+    $("footer").css("position", "static");
 
     dibujarAhorcado(cuentaErrores);
-
+    
+    let mobileInput = document.querySelector("#mobile-input");
+    mobileInput.oninput = function() {
+        let entrada = mobileInput.value;
+        let letra = mobileInput.value = entrada[entrada.length - 1].toUpperCase();
+        if(juegoIniciado) {
+            ingresoTeclado(letra);
+        }
+    }
     window.addEventListener("keypress", function(e) {
         if(juegoIniciado) {
             let letra = e.key.toUpperCase();
@@ -131,7 +143,7 @@ function mostrarJuego(adivinando) {
 }
 function ingresoTeclado(letra) {
     // si no es una letra, no se hace nada
-    if(!(/[a-zA-ZñÑ]/).test(letra)) {
+    if(!(/^[a-zA-ZñÑ]$/).test(letra)) {
         return;
     }
     if(palabra.includes(letra)) {
