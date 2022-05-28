@@ -6,6 +6,12 @@ let adivinando;
 let errores;
 let cuentaErrores;
 
+let footer = `
+    <footer>
+        <p class="footer-text">&copy; Creado por Matías Bruno</p>
+    </footer>
+`;
+
 mostrarInicio();
 
 function iniciarJuego() {
@@ -55,9 +61,13 @@ function guardarPalabra() {
     let input = document.querySelector("#entrada");
     let palabra = input.value;
     if((/^[a-zA-ZñÑ]{4,8}$/).test(palabra)) {
-        palabras.push(palabra.toUpperCase());
-        alert("La palabra se agregó");
-        iniciarJuego();
+        if(!palabras.includes(palabra.toUpperCase())) {
+            palabras.push(palabra.toUpperCase());
+            alert("La palabra se agregó");
+            iniciarJuego();
+        } else {
+            alert("La palabra ya está en la ista");
+        }
     } else {
         alert("La palabra no se pudo agregar, verifique que sean entre 4 y 8 letras, sin números ni símbolos");
     }
@@ -71,23 +81,31 @@ function mostrarInicio() {
         <button id="btn-start" class="btn-custom" onclick="iniciarJuego()">Iniciar Juego</button>
         <button id="btn-addword" class="btn-custom btn-inverse" onclick="mostrarGuardarPalabra()">Agregar nueva palabra</button>
     `;
+    principal.innerHTML += footer;
 }
 
 function mostrarGuardarPalabra() {
     $("#principal").css("justify-content", "space-around");
     principal.innerHTML = `
+        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
+            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
+        </a>
         <input type="text" id="entrada" placeholder="Ingrese una palabra">
         <div id="div-botones">
             <button id="btn-guardar" onclick="guardarPalabra()" class="btn-custom m-1">Guardar y empezar</button>
             <button id="btn-cancelar" onclick="mostrarInicio()" class="btn-custom btn-inverse m-1">Cancelar</button>
         </div>
     `;
+    principal.innerHTML += footer;
     let entrada = document.querySelector("#entrada");
     entrada.focus();
 }
 function mostrarJuego(adivinando) {
     principal.innerHTML = `
-        <canvas width=400 height=400>
+        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
+            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
+        </a>
+        <canvas width=310 height=310>
         </canvas>
         <div id="resultado">
         </div>

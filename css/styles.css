@@ -15,8 +15,8 @@ body {
 }
 .logo {
 	position: absolute;
-	left: 50px;
-	top: 50px;
+	left: 0;
+	top: 10px;
 }
 #principal {
 	display: flex;
@@ -56,22 +56,23 @@ body {
 .btn-custom:hover {
 	transform: scale(1.05);
 }
-.btn-custom:active {
-	border: 1px solid #0A3871;
-}
 #entrada {
 	margin: 20px;
 	padding: 10px;
 	font-size: 20px;
-	/* background-color: #F0F0F0; */
 	max-width: 90%;
 	text-align: center;
 	border-radius: 24px;
 }
 #letras-adivinadas {
-	font-size: 60px;
+	font-size: 50px;
 }
 #resultado {
 	color: red;
 	font-size: 30px;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	color: #0A3871;
 }
