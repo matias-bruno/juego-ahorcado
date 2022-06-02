@@ -1,4 +1,4 @@
-let principal = document.querySelector("#principal")
+let contenido = document.querySelector("#contenido")
 let juegoIniciado = false;
 let palabra;
 let cantidadLetras;

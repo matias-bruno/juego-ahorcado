@@ -14,12 +14,8 @@ body {
 	background-color: #EEE;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.logo {
-	/* position: absolute;
-	left: 0;
-	top: 10px; */
-	/* margin-right: auto; */
-}
+/* .logo {
+} */
 #principal {
 	display: flex;
 	flex-direction: column;
