@@ -12,22 +12,44 @@ html {
 }
 body {
 	background-color: #EEE;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .logo {
-	position: absolute;
+	/* position: absolute;
 	left: 0;
-	top: 10px;
+	top: 10px; */
+	/* margin-right: auto; */
 }
 #principal {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	min-height: 100vh;
 }
-#titulo {
-	text-align: center;
+#contenido {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#juego {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF;
+	border-radius: 24px;
+	border: 3px solid #0A3871;
 	margin: 20px;
+}
+.titulo {
+	color: #0A3871;
+	position: relative;
+	right: 60px;
+}
+.titulo h1 {
+	font-weight: bold;
 }
 #div-botones {
 	display: flex;
@@ -70,15 +92,39 @@ body {
 #resultado {
 	color: red;
 	font-size: 30px;
+	margin: 10px;
+}
+header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
 }
 footer {
-	position: fixed;
-	bottom: 0;
-	color: #0A3871;
+	width: 100%;
+	background-color: #0A3871;
+	color: #FFF;
+}
+.footer-text {
+	text-align: center;
+	margin: 20px;
 }
 #mobile-input {
 	display: none;
 	text-align: center;
+}
+@media (max-width: 600px) {
+	header {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	.titulo {
+		position: relative;
+		right: 0;
+		text-align: center;
+	}
 }
 @media (pointer:coarse) { 
 	#mobile-input { 

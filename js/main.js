@@ -6,12 +6,6 @@ let adivinando;
 let errores;
 let cuentaErrores;
 
-let footer = `
-    <footer>
-        <p class="footer-text">&copy; Creado por Matías Bruno</p>
-    </footer>
-`;
-
 mostrarInicio();
 
 function iniciarJuego() {
@@ -24,12 +18,15 @@ function iniciarJuego() {
     
     cantidadLetras = palabra.length;
     juegoIniciado = true;
-
+    
     for(let i = 0; i < cantidadLetras; i++) {
         adivinando += "_ ";
     }
-
+    
     mostrarJuego(adivinando);
+
+    resultado = document.querySelector("#resultado");
+    resultado.innerText = "Comenzó el juego";
 }
 function reiniciarJuego() {
     if(juegoIniciado == false || confirm("Hay un juego empezado, ¿desea dejarlo y empezar de nuevo?")) {
@@ -73,56 +70,44 @@ function guardarPalabra() {
     }
 }
 function mostrarInicio() {
-    $("#principal").css("justify-content", "center");
-    principal.innerHTML = `
-        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
-            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
-        </a>
+    $("#contenido").css("justify-content", "space-between");
+    contenido.innerHTML = `
         <button id="btn-start" class="btn-custom" onclick="iniciarJuego()">Iniciar Juego</button>
         <button id="btn-addword" class="btn-custom btn-inverse" onclick="mostrarGuardarPalabra()">Agregar nueva palabra</button>
     `;
-    principal.innerHTML += footer;
 }
 
 function mostrarGuardarPalabra() {
-    $("#principal").css("justify-content", "space-around");
-    principal.innerHTML = `
-        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
-            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
-        </a>
+    // $("#contenido").css("justify-content", "space-between");
+    contenido.innerHTML = `
         <input type="text" id="entrada" placeholder="Ingrese una palabra">
         <div id="div-botones">
             <button id="btn-guardar" onclick="guardarPalabra()" class="btn-custom m-1">Guardar y empezar</button>
             <button id="btn-cancelar" onclick="mostrarInicio()" class="btn-custom btn-inverse m-1">Cancelar</button>
         </div>
     `;
-    principal.innerHTML += footer;
-    $("footer").css("position", "static");
     let entrada = document.querySelector("#entrada");
     entrada.focus();
 }
 function mostrarJuego(adivinando) {
-    principal.innerHTML = `
-        <a href="https://www.aluracursos.com/" alt="Sitio web de Alura">
-            <img class="logo" src="img/Logo.png" alt="Logo de Alura">
-        </a>
-        <canvas width=310 height=310>
-        </canvas>
-        <div id="resultado">
-        </div>
-        <div id="letras-adivinadas">
-        ${adivinando}
-        </div>
-        <div id="letras-descartadas">
-        </div>
-        <input type=text id="mobile-input" min-length=1 max-length=1 size=1>
-        <div id="div-botones">
-            <button id="btn-nuevo" onclick="reiniciarJuego()" class="btn-custom m-1">Nuevo Juego</button>
-            <button id="btn-rendirse" onclick="rendirse()" class="btn-custom btn-inverse m-1">Desistir</button>
+    contenido.innerHTML = `
+        <div id="juego">
+            <div id="resultado">
+            </div>
+            <canvas width=310 height=310>
+            </canvas>
+            <div id="letras-adivinadas">
+            ${adivinando}
+            </div>
+            <div id="letras-descartadas">
+            </div>
+            <input type=text id="mobile-input" min-length=1 max-length=1 size=1>
+            <div id="div-botones">
+                <button id="btn-nuevo" onclick="reiniciarJuego()" class="btn-custom m-1">Nuevo Juego</button>
+                <button id="btn-rendirse" onclick="rendirse()" class="btn-custom btn-inverse m-1">Desistir</button>
+            </div>
         </div>
     `;
-    principal.innerHTML += footer;
-    $("footer").css("position", "static");
 
     dibujarAhorcado(cuentaErrores);
     
@@ -157,6 +142,9 @@ function ingresoTeclado(letra) {
         letrasAdivinadas.innerText = adivinando;
         if(adivinando.includes("_") == false) {
             terminarJuego();
+        } else {
+            resultado = document.querySelector("#resultado");
+            resultado.innerText = "Acertaste la letra " + letra;
         }
     } else {
         let letrasDescartadas = document.querySelector("#letras-descartadas");
@@ -168,6 +156,9 @@ function ingresoTeclado(letra) {
             dibujarAhorcado(cuentaErrores);
             if(cuentaErrores == 9) {
                 terminarJuego();
+            } else {
+                resultado = document.querySelector("#resultado");
+                resultado.innerText = "La letra " + letra + " no está";
             }
         }
     }
