@@ -45,7 +45,8 @@ function terminarJuego() {
     if(cuentaErrores < 9) {
         resultado.innerText = "¡Ganaste, felicidades!";
     } else {
-        resultado.innerText = "El juego se terminó";
+        resultado.innerText = "Perdiste, inténtalo de nuevo";
+        mostrarPalabra();
     }
 }
 function obtenerPalabra() {
@@ -68,6 +69,14 @@ function guardarPalabra() {
     } else {
         alert("La palabra no se pudo agregar, verifique que sean entre 4 y 8 letras, sin números ni símbolos");
     }
+}
+function mostrarPalabra() {
+    adivinando = "";
+    for(let i = 0; i < palabra.length; i++) {
+        adivinando +=  palabra[i] + " ";
+    }
+    let letrasAdivinadas = document.querySelector("#letras-adivinadas");
+    letrasAdivinadas.innerText = adivinando;
 }
 function mostrarInicio() {
     $("#contenido").css("justify-content", "space-between");
