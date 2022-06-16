@@ -12,6 +12,6 @@ El juego ya viene con una lista de palabras en un archivo, que son elegidas alea
 
 Se pueden agregar palabras pero estás quedan en la lista mientras no se vuelva a recargar la página.
 
-Se pierde si uno ingresa una letra equivocada 9 veces.
+Tienes la oportunidad de agregar letras y fallar hasta la novena vez, en la que el juego se pierde sino descubriste la palabra.
 
-El juego muestra un mensaje cuando se gana y otro mensaje cuando se pierde.
+En el juego se muestran mensajes para informar al usuario sobre el estado del mismo.
